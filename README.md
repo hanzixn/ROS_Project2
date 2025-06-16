@@ -1,23 +1,14 @@
 # ROS_DesignCode
  ROS 机器人系统课程设计（自主导航+YOLO目标检测+语音播报）
-+ 注：YOLO_weights网盘下载链接：https://pan.baidu.com/s/1wQHcdP5kQWm8qL_qxqhPdw?pwd=o7fp
-提取码：o7fp --来自百度网盘超级会员V2的分享
-
-+ 对应的CSDN博客地址：https://wuzilong.blog.csdn.net/article/details/125803475
-
-
 
 ----
 # 注意事项：
 实验的过程中遇到了许多的bug和问题，例如：
-+ YOLO模块检测物体的时候检测框的左上角不出现文字（后来发现是缺少labels文件）；
-+ gazebo打开的时候可能会崩溃（后来发现是虚拟机的问题，需要关闭vmware的3D图形加速选项）；
-+ 关闭gazebo的时候尽量使用ctrl+C去关闭，直接关闭窗口可能不能完全关闭gazebo的全部进程（此时需要重启）；
-+ 使用语音模块去订阅YOLO模块发送的消息的时候要处理好/darknet_ros/bounding boxes话题信息，在回调函数中提取其中的识别结果。
+
 + 安装ros可参考:
 [Ubuntu18.04上安装ROS的详细教程](https://blog.csdn.net/qq_43313298/article/details/124187225)
-[Ubuntu18.04安装Ros(最新最详细亲测)](https://blog.csdn.net/KIK9973/article/details/118755045)
-+ 本文末尾有源码 和 虚拟机环境（可复制克隆）
+[Ubuntu18.04安装Ros](https://blog.csdn.net/KIK9973/article/details/118755045)
+
 #  一、总体功能设计
 完成自主导航功能，并在小车移动至指定地点的过程中，通过机器人的摄像头检测导航途中所见物体，识别出物体的种类（框选出不同物体并标注识别结果），结合科大讯飞语音合成模块对识别结果进行语音播报。
 
@@ -30,10 +21,6 @@ Ros melodic
 # 三、演示
 演示地址：[https://www.bilibili.com/video/BV1tB4y1Y7UH](https://www.bilibili.com/video/BV1tB4y1Y7UH)
 
-> 其他演示视频：链接：[https://pan.baidu.com/s/1nbP4XJRjF-rSvISvY1fkFA?pwd=nyrf](https://pan.baidu.com/s/1nbP4XJRjF-rSvISvY1fkFA?pwd=nyrf)
-> 提取码：nyrf
-> 视频内容基本相似，多了一点可以参考的视角
-
 # 四、场景搭建、建图与导航模块
 ## 4.1 场景搭建
 + gazebo Building Editor
@@ -41,7 +28,6 @@ Ros melodic
 
 + 场景概览
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/278436a8b639b3b15f54c62e592bb5ce.png)
-由于官方的模型库中没有我所使用的YOLO模型中能够检测到的特征鲜明的物体，如猫、狗、大象、马、苹果、香蕉等，所以部分物体（如图中的香蕉）放在相框中的图片中进行识别。
 + 设置的小车主要识别的区域
 ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/a6a9a1ee278050379e3038f485d961d0.png)
 ## 4.2 小车模型
@@ -169,9 +155,3 @@ YOLO检测模块中的ros.yaml文件中，发布话题/darknet_ros/bounding_boxe
 
 + 全局：各节点之间的通信情况
 ![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/1e0b002651040d5796ab6d2aa3944a85.png)
-# 源码：
-github源码地址：[https://github.com/xinyangwy/ROS_DesignCode](https://github.com/xinyangwy/ROS_DesignCode)
-# 想要复制虚拟机环境看这里：
-+ **遇到bug的朋友看这里**：虚拟机环境，想要复制的可以直接复制到自己的电脑上运行。网盘里面有OVF文件　和　整个的虚拟机环境【开机密码是123】
-链接：[https://pan.baidu.com/s/15CAt5WjC3VvyTBE5eK2Dpw?pwd=wzla](https://pan.baidu.com/s/15CAt5WjC3VvyTBE5eK2Dpw?pwd=wzla) 
-提取码：wzla
