@@ -2,8 +2,6 @@
  ROS 机器人路径规划导航实验
 
 ----
-# 注意事项：
-实验的过程中遇到了许多的bug和问题，例如：
 
 + 安装ros可参考:
 [Ubuntu18.04上安装ROS的详细教程](https://blog.csdn.net/qq_43313298/article/details/124187225)
@@ -41,7 +39,7 @@ Ros melodic
 > gmapping 通过粒子滤波将激光距离数据转化为珊格地图。
 > + 优点：在长廊及低特征场景中建图效果好；构建小场景地图所需的计算量较小且精度较高。缺点：依赖里程计，无法适用无人机及地面小车不平坦区域；无回环；大的场景，粒子较多的情况下，特别消耗资源。
 
-主要参考：我在github上传的这个文件：[导航模块参考.pdf](https://github.com/xinyangwy/ROS_DesignCode/tree/main/%E5%AF%BC%E8%88%AA%E6%A8%A1%E5%9D%97%E5%8F%82%E8%80%83) 
+主要参考：[导航模块参考.pdf](https://github.com/xinyangwy/ROS_DesignCode/tree/main/%E5%AF%BC%E8%88%AA%E6%A8%A1%E5%9D%97%E5%8F%82%E8%80%83) 
 
 ### （1）安装依赖
 在开始该部分设计之前，我们先安装相关支持的功能包，包括建图、导航以及机器人仿真的功能包（克隆下载后仅保留turtlebot3_gazebo文件夹），相关命令如下:
@@ -99,20 +97,11 @@ YOLO（You Only Look Once） 是一种基于深度神经网络的对象识别和
 ## 5.2 本课设尝试使用过的YOLO模型
 注：本课设使用的是yolov2_tiny.weights（能识别80种类别的物体）
 ![请添加图片描述](https://i-blog.csdnimg.cn/blog_migrate/f49f57c18be7dc973dc6c10b08f708c5.png)
-> 注：YOLO_weights网盘下载链接：[https://pan.baidu.com/s/1wQHcdP5kQWm8qL_qxqhPdw?pwd=o7fp](https://pan.baidu.com/s/1wQHcdP5kQWm8qL_qxqhPdw?pwd=o7fp)
-> 提取码：o7fp --来自百度网盘超级会员V2的分享
 # 六、语音合成模块
 + **注：对应github文件中的`catkin_ws`工作空间**
 + 主要参考：
 	+ [ROS实战( 三 )利用科大讯飞tts实现ROS下语音合成播报](https://blog.csdn.net/weixin_40522162/article/details/80525758)
 	+ [ROS实战（二） 科大讯飞语音合成模块](https://blog.csdn.net/weixin_40522162/article/details/80489808)
-可直接用文章（三）；注意第二个参考中的以下两个需要执行一些下：
-
-```python
-sudo apt-get install sox
-为了不要每次运行都souce,把x64目录下的共享库文件拷贝到/usr/lib/下,先cd到voice/libs/x64目录下
-cp libmsc.so /usr/lib/
-```
 # 七、小车摄像头与YOLO模块的通信
 ## 7.1 小车摄像头模块发布话题消息
 找到导航模块中小车的摄像头对应的话题名称：
